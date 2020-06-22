@@ -131,7 +131,7 @@ class DoublyLinkedListTests(unittest.TestCase):
         self.assertEqual(len(self.dll), 0)
 
         self.dll.add_to_tail(1)
-        import ipdb; ipdb.set_trace()
+        # import ipdb; ipdb.set_trace()
         self.dll.add_to_head(9)
         self.dll.add_to_tail(6) # 916
 
