@@ -42,6 +42,8 @@ class ListNode:
 
 """Our doubly-linked list class. It holds references to
 the list's head and tail nodes."""
+
+
 class DoublyLinkedList:
     def __init__(self, node=None):
         self.head = node
@@ -112,7 +114,7 @@ class DoublyLinkedList:
     """Removes the input node from its current spot in the
     List and inserts it as the new head node of the List."""
     def move_to_front(self, node):  # fix
-        # iterate through list checking values until you find it
+        # iterate through list checking nodes until you find it
         # set found_node.prev.next = found_node.next
         # set found_node.next.prev = found_node.prev
         current_node = self.head
@@ -121,7 +123,7 @@ class DoublyLinkedList:
             return None
 
         while current_node is not None:
-            if current_node.value == node.value:
+            if current_node == node:
                 current_node.prev.next = current_node.next
                 current_node.next.prev = current_node.prev
             current_node = current_node.next
@@ -139,7 +141,7 @@ class DoublyLinkedList:
             return None
 
         while current_node is not None:
-            if current_node.value == node.value:
+            if current_node == node:
                 current_node.prev.next = current_node.next
                 current_node.next.prev = current_node.prev
             current_node = current_node.next
@@ -203,7 +205,7 @@ class DoublyLinkedList:
         #     current_node = current_node.next
 
         # self.length -= 1
-        
+  
     """Returns the highest value currently in the list"""
     def get_max(self):
         if self.head is None:
