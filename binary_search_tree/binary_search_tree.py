@@ -148,11 +148,29 @@ class BSTNode:
 
     # Print Pre-order recursive DFT
     def pre_order_dft(self, node):
-        pass
+        # 1. Visit the root.
+        # 2. Traverse the left subtree, i.e., call Preorder(left-subtree)
+        # 3. Traverse the right subtree, i.e., call Preorder(right-subtree)
+
+        if node is None:
+            return
+
+        print(node.value)
+        self.pre_order_dft(node.left)
+        self.pre_order_dft(node.right)
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
-        pass
+        # 1. Traverse the left subtree, i.e., call Postorder(left-subtree)
+        # 2. Traverse the right subtree, i.e., call Postorder(right-subtree)
+        # 3. Visit the root.
+
+        if node is None:
+            return
+
+        self.post_order_dft(node.left)
+        self.post_order_dft(node.right)
+        print(node.value)
 
     def __repr__(self):
         return f'value: {self.value}\nleft: {self.left}\nright: {self.right}'
