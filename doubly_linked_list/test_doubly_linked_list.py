@@ -1,6 +1,8 @@
 import unittest
-from doubly_linked_list import ListNode
-from doubly_linked_list import DoublyLinkedList
+from doubly_linked_list import (
+    ListNode,
+    DoublyLinkedList
+)
 
 
 class DoublyLinkedListTests(unittest.TestCase):
@@ -122,21 +124,23 @@ class DoublyLinkedListTests(unittest.TestCase):
         self.assertEqual(len(self.dll), 3)
 
     def test_list_delete(self):
+        # import ipdb; ipdb.set_trace()
         self.dll.delete(self.node)
         self.assertIsNone(self.dll.head)
         self.assertIsNone(self.dll.tail)
         self.assertEqual(len(self.dll), 0)
 
         self.dll.add_to_tail(1)
+        # import ipdb; ipdb.set_trace()
         self.dll.add_to_head(9)
-        self.dll.add_to_tail(6)
+        self.dll.add_to_tail(6) # 916
 
-        self.dll.delete(self.dll.head)
+        self.dll.delete(self.dll.head) # [1, 6]
         self.assertEqual(self.dll.head.value, 1)
         self.assertEqual(self.dll.tail.value, 6)
         self.assertEqual(len(self.dll), 2)
 
-        self.dll.delete(self.dll.head)
+        self.dll.delete(self.dll.head) # [ 6 ]
         self.assertEqual(self.dll.head.value, 6)
         self.assertEqual(self.dll.tail.value, 6)
         self.assertEqual(len(self.dll), 1)
@@ -153,3 +157,4 @@ class DoublyLinkedListTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
